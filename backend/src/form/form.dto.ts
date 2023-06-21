@@ -21,5 +21,4 @@ export class UpdateFormDto {
   @IsString()
   username: string;
 
-//   Add additional validation rules for the fields that can be updated
 }
