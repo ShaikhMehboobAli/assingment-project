@@ -6,13 +6,19 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // Enable CORS
+  /*
+    Enable CORS
+  */
   app.enableCors();
 
-  // Set up request validation
+  /*
+    Set up request validation
+  */
   app.useGlobalPipes(new ValidationPipe());
 
-  // Set up Swagger API documentation
+  /*
+    Set up Swagger API documentation
+  */
   const options = new DocumentBuilder()
     .setTitle('Form API')
     .setDescription('API for form submission')

@@ -1,5 +1,8 @@
 import { IsString, IsEmail, IsDateString } from 'class-validator';
 
+/*
+    type creation for extra check for the field
+*/
 export class CreateFormDto {
   @IsString()
   username: string;

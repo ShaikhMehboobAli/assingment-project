@@ -8,6 +8,9 @@ export interface Form extends Document {
   dateOfBirth: Date;
 }
 
+/*
+    Schema of the form for mongoose
+*/
 export const FormSchema = new Schema<Form>({
   username: { type: String, required: true, unique: true },
   phoneNumber: { type: String, required: true },

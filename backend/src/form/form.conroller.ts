@@ -6,16 +6,28 @@ import { Form } from './form.model';
 export class FormController {
   constructor(private readonly formService: FormService) {}
 
+  /*
+    Routes for create user with user detail
+    POST public /form
+  */
   @Post()
   submitForm(@Body() formData: Form) {
     return this.formService.submitForm(formData);
   }
 
+  /*
+    Routes for getting the detail of username if exist 
+    GET public /form/{username}
+  */
   @Get(':username')
   getFormByUsername(@Param('username') username: string) {
     return this.formService.getFormByUsername(username);
   }
 
+  /*
+    Routes for updating the detail of username if exist 
+    PATCH public /form/{username}
+  */
   @Patch(':username')
   updateFormByUsername(
     @Param('username') username: string,

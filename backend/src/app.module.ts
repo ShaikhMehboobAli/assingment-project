@@ -3,12 +3,17 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { FormModule } from './form/form.module';
+import { ConfigModule } from '@nestjs/config';
+
 
 @Module({
   imports: [
-    MongooseModule.forRoot(
-      'mongodb+srv://mehboob1996:qwer1234@alicluster.urt5o2d.mongodb.net/assignment-project?retryWrites=true&w=majority',
-    ),
+    ConfigModule.forRoot(),
+    MongooseModule.forRootAsync({
+      useFactory: () => ({
+        uri: process.env.DB_CONNECTION_STRING,
+      }),
+    }),
     FormModule,
   ],
   controllers: [AppController],
